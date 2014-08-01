@@ -15,7 +15,7 @@
 
 		<style>
 			@media(min-width: 768px) {
-				.registerForm {
+				.auth-form {
 					width: 50%;
 					margin-left: auto;
 					margin-right: auto;
@@ -23,7 +23,7 @@
 			}
 
 			@media(max-width: 768px) {
-				.registerForm {
+				.auth-form {
 					width: 90%;
 					margin-left: auto;
 					margin-right: auto;
@@ -55,20 +55,20 @@
 	</nav>
 
 	<div class="container" style="margin-top: 100px;">
-		<div class="registerForm">
-			<div class="alert alert-danger" id="failForm" style="display: none;">
+		<div class="auth-form">
+			<div class="alert alert-danger" id="fail-form" style="display: none;">
 				
 			</div>
-	    	<form role="form" id="registerForm" onsubmit="return false;">
+	    	<form role="form" id="auth-form" onsubmit="return false;">
 				<div class="form-group">
-					<label for="loginLogin">Email address</label>
-					<input type="text" class="form-control" id="registerLogin" placeholder="Enter email" />
+					<label for="auth-email">Email address</label>
+					<input type="text" class="form-control" id="auth-email" placeholder="Enter email" />
 				</div>
 				<div class="form-group">
-					<label for="loginPassword">Password:</label>
-					<input type="password" class="form-control" id="loginLogin" placeholder="Password" />
+					<label for="auth-password">Password:</label>
+					<input type="password" class="form-control" id="auth-password" placeholder="Password" />
 				</div>
-				<button id="loginSubmit" class="btn btn-default">Sign in</button>
+				<button id="authSubmit" class="btn btn-default">Sign in</button>
 				<a href="/users/register" class="btn btn-default">Register</a>
 	    	</form>
 		</div>
@@ -92,32 +92,32 @@
 			var userid = $.cookie('userid');
 
 			if (!session) {
-				$("#loginForm").fadeIn();
-				$("#failForm").hide();
-				if (data.email) $("#loginName").text(data.email);
+				$("#auth-form").fadeIn();
+				$("#fail-form").hide();
+				if (data.email) $("#auth-name").text(data.email);
 			} else {
 				$.getJSON('/api/users/profile/' + userid, function(data) {
-					$("#loginName").text(data.nick);
+					$("#auth-name").text(data.nick);
 				}).fail(function() {
 					$.get('/api/users/logout', init);
 				});
-				$("#loginForm").fadeOut();
-				$("#failForm").fadeOut();
+				$("#auth-form").fadeOut();
+				$("#fail-form").fadeOut();
 			}
 		};
 
 		$(function() {
 			init();
 
-			$("#loginSubmit").on('click', function() {
-				var email = $("#loginLogin").val();
-				var password = $("#loginPassword").val();
+			$("#authSubmit").on('click', function() {
+				var email = $("#auth-email").val();
+				var password = $("#auth-password").val();
 
 				$.post("/api/users/auth", { email: email, password: password }, init).fail(function(data) {
-					$("#loginPassword").val('');
+					$("#auth-password").val('');
 					data = JSON.parse(data.responseText);			
-					$("#failForm").text(data.message);
-					$("#failForm").fadeIn();
+					$("#fail-form").text(data.message);
+					$("#fail-form").fadeIn();
 				});
 			});
 		});

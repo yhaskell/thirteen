@@ -15,7 +15,7 @@
 
 		<style>
 			@media(min-width: 768px) {
-				.registerForm {
+				.register-form {
 					width: 50%;
 					margin-left: auto;
 					margin-right: auto;
@@ -23,7 +23,7 @@
 			}
 
 			@media(max-width: 768px) {
-				.registerForm {
+				.register-form {
 					width: 90%;
 					margin-left: auto;
 					margin-right: auto;
@@ -55,20 +55,20 @@
 	</nav>
 
 	<div class="container" style="margin-top: 100px;">
-		<div class="registerForm">
-			<div class="alert alert-danger" id="failForm" style="display: none;">
+		<div class="register-form">
+			<div class="alert alert-danger" id="fail-form" style="display: none;">
 				
 			</div>
-	    	<form role="form" id="registerForm" onsubmit="return false;">
+	    	<form role="form" id="register-form" onsubmit="return false;">
 				<div class="form-group">
-					<label for="registerLogin">Email address</label>
-					<input type="text" class="form-control" id="registerLogin" placeholder="Enter email" />
+					<label for="register-email">Email address</label>
+					<input type="text" class="form-control" id="register-email" placeholder="Enter email" />
 				</div>
 				<div class="form-group">
-					<label for="registerPassword">Password:</label>
-					<input type="password" class="form-control" id="registerLogin" placeholder="Password" />
+					<label for="register-password">Password:</label>
+					<input type="password" class="form-control" id="register-email" placeholder="Password" />
 				</div>
-				<button id="registerSubmit" class="btn btn-default">Register</button>
+				<button id="register-submit" class="btn btn-default">Register</button>
 	    	</form>
 		</div>
 	</div>
@@ -79,8 +79,8 @@
 	<script>
 		$(function() {
 			$("form").on('submit', function() {
-				var email = $("#email").val();
-				var password = $("#password").val();
+				var email = $("#register-email").val();
+				var password = $("#register-password").val();
 
 				$.post("/api/users/register", { email: email, password: password }, function(data) {
 					data = JSON.parse(data);
@@ -90,8 +90,8 @@
 
 				}).fail(function(data) {
 					data = JSON.parse(data.responseText);				
-					$("#failForm").text(data.message);
-					$("#failForm").fadeIn();
+					$("#fail-form").text(data.message);
+					$("#fail-form").fadeIn();
 				});
 
 				return false;
