@@ -67,7 +67,7 @@
 	<div class="container" style="margin-top: 100px;">
 		<div class="registerForm">
 			<div class="alert alert-danger" id="failForm" style="display: none;">
-				This email is <strong>already registred</strong>
+				
 			</div>
 	    	<form role="form" id="registerForm" onsubmit="return false;">
 				<div class="form-group">
@@ -127,7 +127,7 @@
 					$("#loginPassword").val('');
 					$("#failForm").fadeIn();
 					data = JSON.parse(data.responseText);			
-					console.log("Error: " + data.message);
+					$("#failForm").text(data.message);
 				});
 			});
 		});
