@@ -1,75 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thirteen</title>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Thirteen - Registration</title>
 
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
 
-	<div class="jumbotron">
-		<div class="container">
-	      <h1>Thirteen</h1>	
-	      <h3>Registration</h3>
-      	</div>
-	</div>    
+		<style>
+			@media(min-width: 1100px) {
+				.search-box {
+					width: 500px !important;
+				}
+			}
 
-    <div class="container" style="margin-top: 100px;">
+			@media(max-width: 1100px) {
+				.search-box {
+				}
+			}
 
-		<div id='errorContainer' class="alert alert-danger hidden" role="alert"><strong>Error:</strong> <span id='error'></span></div>
+			@media(min-width: 768px) {
+				.registerForm {
+					width: 50%;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
 
-    	<form role="form">
-			<div class="form-group">
-				<label for="email">Email address</label>
-				<input type="text" class="form-control" id="email" placeholder="Enter email" />
+			@media(max-width: 768px) {
+				.registerForm {
+					width: 90%;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+	<!-- navigation top bar -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Thirteen</a>
 			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      		<ul class="nav navbar-nav">
+	        		<li class="active"><a href="/">Home</a></li>      
+	      		</ul>
+	    	</div>
+		</div><!-- /.container-fluid -->
+	</nav>
 
-			<div class="form-group">
-				<label for="password">Password:</label>
-				<input type="password" class="form-control" id="password" placeholder="Password" />
+	<div class="container" style="margin-top: 100px;">
+		<div class="registerForm">
+			<div class="alert alert-danger" id="failForm" style="display: none;">
+				This email is <strong>already registred</strong>
 			</div>
-			
-			<button type="submit" class="btn btn-default">Register</button>
-    	</form>
-    </div>
+	    	<form role="form" id="registerForm" onsubmit="return false;">
+				<div class="form-group">
+					<label for="registerLogin">Email address</label>
+					<input type="text" class="form-control" id="registerLogin" placeholder="Enter email" />
+				</div>
+				<div class="form-group">
+					<label for="registerPassword">Password:</label>
+					<input type="password" class="form-control" id="registerLogin" placeholder="Password" />
+				</div>
+				<button id="registerSubmit" class="btn btn-default">Register</button>
+				<a href="/users/auth" class="btn btn-default">Authorization</a>
+	    	</form>
+		</div>
+	</div>
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/cookie.js"></script>
 
-	<script type="text/javascript">
-	$(function() {
-		$("form").on('submit', function() {
-			var email = $("#email").val();
-			var password = $("#password").val();
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/cookie.js"></script>
+	<script>
+		$(function() {
+			$("form").on('submit', function() {
+				var email = $("#email").val();
+				var password = $("#password").val();
 
-			$.post("/api/users/register", { email: email, password: password }, function(data) {
-				data = JSON.parse(data);
+				$.post("/api/users/register", { email: email, password: password }, function(data) {
+					data = JSON.parse(data);
 
-				$.cookie('default-email', data.email);
-				document.location.href = '/users/auth';
+					$.cookie('default-email', data.email);
+					document.location.href = '/users/auth';
 
-			}).fail(function(data) {
-				data = JSON.parse(data.responseText);				
-				$("#error").text(data.message);
-				$("#errorContainer").removeClass('hidden');
+				}).fail(function(data) {
+					data = JSON.parse(data.responseText);				
+					$("#error").text(data.message);
+					$("#errorContainer").removeClass('hidden');
+				});
+
+				return false;
 			});
-
-			return false;
 		});
-	});
 	</script>
-	
-  </body>
+	</body>
 </html>
