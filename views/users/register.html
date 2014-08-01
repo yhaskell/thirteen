@@ -67,7 +67,7 @@
 	<div class="container" style="margin-top: 100px;">
 		<div class="registerForm">
 			<div class="alert alert-danger" id="failForm" style="display: none;">
-				This email is <strong>already registred</strong>
+				
 			</div>
 	    	<form role="form" id="registerForm" onsubmit="return false;">
 				<div class="form-group">
@@ -101,8 +101,8 @@
 
 				}).fail(function(data) {
 					data = JSON.parse(data.responseText);				
-					$("#error").text(data.message);
-					$("#errorContainer").removeClass('hidden');
+					$("#failForm").text(data.message);
+					$("#failForm").fadeIn;
 				});
 
 				return false;

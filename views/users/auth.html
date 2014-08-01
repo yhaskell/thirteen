@@ -125,9 +125,9 @@
 
 				$.post("/api/users/auth", { email: email, password: password }, init).fail(function(data) {
 					$("#loginPassword").val('');
-					$("#failForm").fadeIn();
 					data = JSON.parse(data.responseText);			
 					$("#failForm").text(data.message);
+					$("#failForm").fadeIn();
 				});
 			});
 		});
