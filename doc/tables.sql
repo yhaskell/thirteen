@@ -15,7 +15,6 @@ create table users (
 create table images (
   id int auto_increment primary key,
   type smallint,
-  tag int,
   owner int,
   path text,
   description text,
@@ -37,6 +36,14 @@ create table tags (
   primary key (image, tag),
   foreign key (image) references images(id)
 );
+
+create table likes (
+  image int,
+  owner int,
+  primary key (image, owner),
+  foreign key (owner) references users(id),
+  foreign key (image) references images(id)
+)
 
 create table comments (
   id int auto_increment primary key,
