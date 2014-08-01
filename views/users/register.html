@@ -102,7 +102,7 @@
 				}).fail(function(data) {
 					data = JSON.parse(data.responseText);				
 					$("#failForm").text(data.message);
-					$("#failForm").fadeIn;
+					$("#failForm").fadeIn();
 				});
 
 				return false;
