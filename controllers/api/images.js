@@ -14,7 +14,7 @@ exports.upload = function () {
 			message: "Method not allowed: " + req.method
 		});
 	} else {
-		var sessionkey = thirteen.cookies.sessionkey;
+		var sessionkey = T.cookies.sessionkey;
 
 		T.db.handshake(sessionkey).then(function (data) {
 			var form = new formidable.IncomingForm();
