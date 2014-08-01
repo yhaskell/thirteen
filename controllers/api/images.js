@@ -66,11 +66,9 @@ exports.update = function(id) {
 				.then(function(data) {
 					T.db.images.update(id, desc, 0, tags);
 
-					var gdm = gm('.' + data.path.replace('photos', 'tmp'))
+					gdm = gm('.' + data.path.replace('photos', 'tmp'))
 						.crop(size, size, x, y)
-						.resize(610,610);
-					T.log(gdm);
-					gdm	
+						.resize(610,610)
 						.write('./' + data.path, function (err) {
 							if (err) {
 								rsp.statusCode = 500;
