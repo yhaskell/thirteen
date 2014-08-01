@@ -62,8 +62,8 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged on as <span id="auth-nick">%username%</span> <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="/users/profile">Profile</a></li>
-	            <li><a href="/users/logout">Sign out</a></li>
+	            <li><a id="profile-go" href="#">Profile</a></li>
+	            <li><a id="profile-logout" href="#">Sign out</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -154,6 +154,10 @@
 
 		$(function() {
 			init();
+
+			$("#profile-logout").on('click', function() {
+				$.get('/api/users/logout', init);
+			});
 		});
 	</script>
   </body>
