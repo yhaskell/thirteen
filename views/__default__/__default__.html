@@ -86,28 +86,36 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" src="css/placeholder.png">
+				<img class="img-responsive" id="slide1-1" src="css/placeholder.png">
+				<img class="img-responsive" id="slide1-2" src="css/placeholder.png" style="display: none;">
 			</div>
 			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" src="css/placeholder.png">
+				<img class="img-responsive" id="slide2-1" src="css/placeholder.png">
+				<img class="img-responsive" id="slide2-2" src="css/placeholder.png" style="display: none;">
 			</div>
 			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" src="css/placeholder.png">
+				<img class="img-responsive" id="slide3-1" src="css/placeholder.png">
+				<img class="img-responsive" id="slide3-2" src="css/placeholder.png" style="display: none;">
 			</div>
 			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" src="css/placeholder.png">
+				<img class="img-responsive" id="slide4-1" src="css/placeholder.png">
+				<img class="img-responsive" id="slide4-2" src="css/placeholder.png" style="display: none;">
 			</div>
 			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" src="css/placeholder.png">
+				<img class="img-responsive" id="slide5-1" src="css/placeholder.png">
+				<img class="img-responsive" id="slide5-2" src="css/placeholder.png" style="display: none;">
 			</div>
 			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" src="css/placeholder.png">
+				<img class="img-responsive" id="slide6-1" src="css/placeholder.png">
+				<img class="img-responsive" id="slide6-2" src="css/placeholder.png" style="display: none;">
 			</div>
 			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" src="css/placeholder.png">
+				<img class="img-responsive" id="slide7-1" src="css/placeholder.png">
+				<img class="img-responsive" id="slide7-2" src="css/placeholder.png" style="display: none;">
 			</div>
 			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" src="css/placeholder.png">
+				<img class="img-responsive" id="slide8-1" src="css/placeholder.png">
+				<img class="img-responsive" id="slide8-2" src="css/placeholder.png" style="display: none;">
 			</div>	
 		</div>
 	</div>
@@ -117,7 +125,14 @@
     <script src="/js/bootstrap.min.js"></script>
 	<script src="/js/cookie.js"></script>
 	<script>
-	var init = function(data) {
+		var slider = function (first, second) {
+			first.fadeOut();
+			setTimeout(function() {
+				second.fadeIn();
+			}, 500);
+		};
+
+		var init = function(data) {
 			if (!data) data = {};
 			if (typeof(data) == 'string' && data !== '') data = JSON.parse(data);	
 
@@ -146,6 +161,56 @@
 			$("#profile-logout").on('click', function() {
 				$.get('/api/users/logout', init);
 			});
+
+			//while (true) {
+				slider($("#slide1-1"), $("#slide1-2"));
+				setTimeout (function(){
+					slider($("#slide7-1"), $("#slide7-2"));
+					setTimeout (function(){
+						slider($("#slide5-1"), $("#slide5-2"));
+						setTimeout (function(){
+							slider($("#slide3-1"), $("#slide3-2"));
+							setTimeout (function(){
+								slider($("#slide8-1"), $("#slide8-2"));
+								setTimeout (function(){
+									slider($("#slide2-1"), $("#slide2-2"));
+									setTimeout (function(){
+										slider($("#slide6-1"), $("#slide6-2"));
+										setTimeout (function(){
+											slider($("#slide4-1"), $("#slide4-2"));
+											// sliding back
+											setTimeout (function(){
+												slider($("#slide3-2"), $("#slide3-1"));
+												setTimeout (function(){
+													slider($("#slide5-2"), $("#slide5-1"));
+													setTimeout (function(){
+														slider($("#slide8-2"), $("#slide8-1"));
+														setTimeout (function(){
+															slider($("#slide1-2"), $("#slide1-1"));
+															setTimeout (function(){
+																slider($("#slide4-2"), $("#slide4-1"));
+																setTimeout (function(){
+																	slider($("#slide7-2"), $("#slide7-1"));
+																	setTimeout (function(){
+																		slider($("#slide6-2"), $("#slide6-1"));
+																		setTimeout (function(){
+																			slider($("#slide2-2"), $("#slide2-1"));
+																		}, 7000);
+																	}, 7000);
+																}, 7000);
+															}, 7000);
+														}, 7000);
+													}, 7000);
+												}, 7000);
+											}, 7000);
+										}, 7000);
+									}, 7000);
+								}, 7000);
+							}, 7000);
+						}, 7000);
+					}, 7000);
+				}, 7000);
+			//}
 		});
 	</script>
   </body>
