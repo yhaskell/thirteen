@@ -23,17 +23,17 @@ exports.upload = function () {
 			form.maxFieldsSize = 12 * 1024 * 1024;
 			form.maxFields = 1000;
 
-			var userId = data.owner;
+			var owner = data.owner;
 
 			form.parse(req, function(err, fields, files) {
-				var path = '/' + files.uploadFile.path.replace('\\', '/');
+				var path = '/' + files.upload.path.replace('\\', '/');
 
 				T.db.images.add(owner, path.replace('tmp', 'photos'))
 					.then(function (data) {
 						rsp.statusCode = 200;
 						rsp.endj({
 							path: path, 
-							id: data.id
+							id: data
 						});
 					});
 			});
@@ -43,9 +43,6 @@ exports.upload = function () {
 		});
 	}
 };
-
-
-
 
 exports.update = function(id) {
 	var T   = this.thirteen,
@@ -60,22 +57,24 @@ exports.update = function(id) {
 	} else {
 		T.post().then(function() {
 			var desc = req.post.desc,
-				tags = req.post.tags,
+				tags = desc.match(/\#([^ ]+)/g),
 				size = req.post.size,
 				x 	 = req.post.x,
 				y    = req.post.y;
 
-		T.post().then(function () {
 			T.db.images.get(id)
 				.then(function(data) {
-					T.db.images.update(id, desc, tags);
+					T.db.images.update(id, desc, 0, tags);
 
-					gm('.' + data.path.replace('photos', 'tmp'))
+					var gdm = gm('.' + data.path.replace('photos', 'tmp'))
 						.crop(size, size, x, y)
-						.resize(610,610)
-						.write('.' +data.path, function (err) {
+						.resize(610,610);
+					T.log(gdm);
+					gdm	
+						.write('./' + data.path, function (err) {
 							if (err) {
 								rsp.statusCode = 500;
+								rsp.end();
 								T.log(err);
 							} else {
 								rsp.statusCode = 200;
@@ -87,6 +86,5 @@ exports.update = function(id) {
 						});
 				});
 			});
-		});
 	}
 };
