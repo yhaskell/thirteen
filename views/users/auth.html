@@ -56,7 +56,7 @@
 
 	<div class="container" style="margin-top: 100px;">
 		<div class="auth-form">
-			<div class="alert alert-danger" id="fail-form" style="display: none;">
+			<div class="alert alert-danger" id="fail-message" style="display: none;">
 				
 			</div>
 	    	<form role="form" id="auth-form" onsubmit="return false;">
@@ -68,7 +68,7 @@
 					<label for="auth-password">Password:</label>
 					<input type="password" class="form-control" id="auth-password" placeholder="Password" />
 				</div>
-				<button id="authSubmit" class="btn btn-default">Sign in</button>
+				<button type="submit" id="auth-submit" class="btn btn-primary">Sign in</button>
 				<a href="/users/register" class="btn btn-default">Register</a>
 	    	</form>
 		</div>
@@ -92,32 +92,26 @@
 			var userid = $.cookie('userid');
 
 			if (!session) {
-				$("#fail-form").hide();
+				$("#fail-message").hide();
 				$("#auth-form").fadeIn();
 				if (data.email) $("#auth-name").text(data.email);
 			} else {
-				$.getJSON('/api/users/profile/' + userid, function(data) {
-					$("#auth-name").text(data.nick);
-				}).fail(function() {
-					$.get('/api/users/logout', init);
-				});
-				$("#auth-form").fadeOut();
-				$("#fail-form").fadeOut();
+				document.location.href='/';
 			}
 		};
 
 		$(function() {
 			init();
 
-			$("#authSubmit").on('click', function() {
+			$("#auth-submit").on('click', function() {
 				var email = $("#auth-email").val();
 				var password = $("#auth-password").val();
 
 				$.post("/api/users/auth", { email: email, password: password }, init).fail(function(data) {
 					$("#auth-password").val('');
 					data = JSON.parse(data.responseText);			
-					$("#fail-form").text(data.message);
-					$("#fail-form").fadeIn();
+					$("#fail-message").text(data.message);
+					$("#fail-message").fadeIn();
 				});
 			});
 		});
