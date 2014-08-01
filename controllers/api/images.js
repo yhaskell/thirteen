@@ -88,3 +88,21 @@ exports.update = function(id) {
 			});
 	}
 };
+
+
+exports.get = function(id) {
+	var T   = this.thirteen,
+		rsp = T.response,
+		req = T.request;
+
+		T.db.images.get(id).then(function(data) {
+			rsp.statusCode = 200;
+			rsp.endj(data);
+		}).catch(function(e) {
+			rsp.statusCode = 404;
+			T.log(e);
+			rsp.end();
+		});
+};
+
+exports.__default__ = exports.get;
