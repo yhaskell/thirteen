@@ -7,18 +7,23 @@
     <title>Thirteen</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/jquery.Jcrop.css" type="text/css" />
+    <link rel="stylesheet" href="/css/crop.css" type="text/css" />
 
     <style>
     	.file-box {
-    		text-align: center; overflow: hidden; width: 400px; height: 400px; border: 1px solid #99cccc; background: #99cccc url(/css/upload.png) no-repeat;
+    		overflow: hidden;
+    		height: 71px;
+    		padding: 10px 0px;
     	}
 
-    	.uploadForm {
-			width: 40%;
-			margin-left: auto;
-			margin-right: auto;
-		}
+    	.upload-file {
+    		margin-top: -50px; 
+    		width: 100%; 
+    		height: 71px; 
+    		-moz-opacity: 0; 
+    		filter: alpha(opacity=0); 
+    		opacity: 0;
+    	}
 	</style>
 	</head>
 	<body>
@@ -44,82 +49,134 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
-    <div class="container" style="margin-top: 100px;">
-		<div class="uploadForm">
-			<div id="uForm">
-				<form role="form" id="uploadForm" onsubmit="return false;" enctype="multipart/form-data" method="post">
-					<div class="form-group">
-						<div class="file-box">
-							<input type="file" id="uploadFile" multiple="multiple" style="margin-top: 0px; margin-left: 0px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; width: 400px; height: 400px;" />
-						</div>
-					</div>
-				</form>
-		    </div>
-		    <div id="uProgress" style="display: none;">
-		    <label id="fileName"></label>
-				<div class="progress">
-					<div id="progBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+
+
+
+	<div class="container" style="margin-top: 100px;">
+
+		<div id="upload-error" class="alert alert-danger hidden"><strong>Error:</strong> <span id="upload-error-message">only images are accepted</span></div>
+
+		<div class="panel panel-default" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+			<div id="upload-header" class="panel-heading" style="text-align: center; padding: 0px;">
+				<div class="file-box">
+					<h4><a href="#"><span id="upload-header-icon" class="glyphicon glyphicon-camera"></span> <span id="upload-header-text">Upload photo</span></a></h4>
+					<input type="file" id="upload-file" class="upload-file" />
+				</div>
+	 		</div>
+	 		<div id="upload-body" class="panel-body" style="display: none;">
+	 			<div id="progress-bar-outer" class="progress">
+					<div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
 				    	<span class="sr-only"></span>
 					</div>
 				</div>
-		    </div>
-		    <div id="uCrop" style="display: none;">
-		    	<div class="row">
-		    		<div class="col-lg-8">
-		    			<img class="img-responsive" id="uLoaded" src="" />
-		    			<img class="img-responsive hidden" id="uLoaded2" src="" />
-		    		</div>
-		    		<div class="col-lg-4">
-		    			<div class="form-group">
-							<label for="fileDesc">Description</label>
-							<input type="text" class="form-control" id="description" placeholder="Description" />
-						</div>
-						<div class="form-group">
-							<label for="fileTags">Tags</label>
-							<input type="text" class="form-control" id="tags" placeholder="Tags" />
-						</div>
-
-						<button id="uploadInfo" class="btn btn-default">Upload</button>
-		    		</div>
-		    	</div>    	
-		    </div>
-		</div>
-    </div>
+				<img src="" id="crop-image" class="img-responsive thumbnail" />
+				<div class="form-group hidden" id="upload-desc-outer">
+					<label for="upload-desc">Description</label>
+					<textarea id="upload-desc" class="form-control" rows="3"></textarea>
+				</div>
+			</div>
+ 		</div>
+	</div>
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 	<script src="/js/cookie.js"></script>
-	<script src="/js/jquery.jcrop.js"></script>
+	<script src="/js/crop.min.js"></script>
 	<script>
 
 	$(function() {
 
-		var x = 0;
-		var y = 0;
-		var w = 0;
-		var h = 0;
-		var width = 0;
-		var height = 0;
-		var id = 0;
+		var x = 0, y = 0,
+			w = 0, h = 0,
+			width = 0,
+			height = 0,
+			id = 0,
+			jcrop;
 
-		var jcrop;
+		$("#upload-file").on('change', function() {
+			$("#upload-error").addClass("hidden");
 
-		$("#uploadFile").on('change', function() {
-			var file = document.getElementById('uploadFile').files[0];
-	        var data = new FormData();
-	        data.append('uploadFile', file);
+			if (this.files.length === 0) return;
+
+			var file = this.files[0],
+	        	data = new FormData();
+	        
+	        data.append('upload', file);
 
 			if (!file.type.match(/image/)) {
-				$("#uploadFile").val('');
+				$("#upload-error").removeClass("hidden");
+				$(this).val('');
 				return;
 			}
 
-			x = 0;
-			y = 0;
-			w = 0;
-			h = 0;
+			x = 0; y = 0;
+			w = 0; h = 0;
 
-			$("fileName").text('Uploading ' + file.name);
+			var uploaded = function(data) {
+	    		data = JSON.parse(data);
+	    		id = data.id;
+	    		setTimeout(function(){
+	    			$("#progress-bar-outer").fadeOut();	    	
+	    			$("#upload-header input").remove();
+	    			$("#upload-header-icon").removeClass("glyphicon-camera").addClass("glyphicon-floppy-disk");
+	    			$("#upload-header-text").text("Save");
+	    			$("#upload-desc-outer").removeClass('hidden');
+	    			$("#upload-header").css('cursor', 'pointer')
+	    				.on('click', function() {	    				
+	    					var desc    = $("#upload-desc").val(),
+	    						image   = $("#crop-image"),
+	    						width   = image.css('width').replace('px',''),
+	    						rwidth  = image[0].naturalWidth,
+	    						enlarge = rwidth / width;
+
+	    					$.post('/api/images/update/' + id, {
+	    						desc: desc,
+	    						x: (x * enlarge).toFixed(0),
+	    						y: (y * enlarge).toFixed(0),
+	    						size: (w * enlarge).toFixed(0)
+	    					}, function(data) {
+	    						document.location.href = '/images/' + id;
+	    					}).fail(function(data) {
+	    						$("#upload-error").show();
+	    						$("#upload-error-message").text(data.responseText);
+	    					}); 
+	    				});
+	    			setTimeout(function(){
+	    				$("#crop-image").attr('src', data.path).removeClass("hidden");
+						$('#crop-image').Jcrop({
+							minSize: [250, 250],
+							maxSize: [1024, 1024],
+							setSelect:   [ 0, 0, 250, 250 ],
+							aspectRatio: 1,
+							bgOpacity: 0.4,
+							bgColor: 'white',
+  							onSelect: function(c) {
+  								x = c.x; y = c.y;
+  								w = c.w; h = c.h;
+  							},
+  							onChange: function(c) {
+  								x = c.x; y = c.y;
+  								w = c.w; h = c.h;
+  							}
+						}, function() { jcrop = this; });
+					}, 500);
+	    		}, 1000);
+
+			};
+
+			var xhr = function() {
+                var xhr = $.ajaxSettings.xhr();
+
+                if ( xhr.upload ) {                
+                		$("#upload-body").slideDown('hidden');
+					xhr.upload.onprogress = function(e) {
+                       	file.progressDone = e.position || e.loaded;
+                       	file.progressTotal = e.totalSize || e.total;
+                       	$("#progress-bar").css('width', (100 * file.progressDone / file.progressTotal).toFixed(0) + '%');
+                   	};
+                }
+                return xhr;
+            };
 
 		    $.ajax( {
 		    	url: '/api/images/upload', 
@@ -129,97 +186,10 @@
 		    	enctype: "multipart/form-data",
 		    	processData: false,
 		    	contentType: false,
-		    	success: function(data) {
-		    		data = JSON.parse(data);
-		    		id = data.id;
-		    		setTimeout(function(){
-		    			$("#uProgress").fadeOut();
-		    			setTimeout(function(){
-		    				console.log(data);
-		    				$("#uLoaded").attr('src', data.path);
-							$("#uCrop").fadeIn();
-							$('#uLoaded').Jcrop({
-								minSize: [250, 250],
-								maxSize: [1024, 1024],
-								setSelect:   [ 0, 0, 250, 250 ],
-								aspectRatio: 1,
-								bgOpacity: 0.4,
-      							bgColor: 'white',
-      							onSelect: function(c) {
-      								x = c.x;
-      								y = c.y;
-      								w = c.w;
-      								h = c.h;
-      							},
-      							onChange: function(c) {
-      								x = c.x;
-      								y = c.y;
-      								w = c.w;
-      								h = c.h;
-      							}
-							}, function() { jcrop = this; });
-						}, 500);
-		    		}, 1000);
-				},
-				xhr: function() {
-	                var xhr = $.ajaxSettings.xhr();
-
-	                if ( xhr.upload ) {
-	                	setTimeout(function(){
-						$("#uForm").fadeOut();
-							setTimeout(function(){
-								$("#uProgress").fadeIn();
-							}, 500);
-						}, 500);
-						xhr.upload.onprogress = function(e) {
-	                       	file.progressDone = e.position || e.loaded;
-	                       	file.progressTotal = e.totalSize || e.total;
-	                       	$("#progBar").css('width', (100 * file.progressDone / file.progressTotal).toFixed(0) + '%');
-	                   	};
-	                }
-	                return xhr;
-	            }
+		    	success: uploaded,
+				xhr: xhr
 			}).fail(function(data, err, status) {
-				if (status == 'Forbidden') document.location.href = '/html/login.html';
-			});
-
-		});
-
-		$("#uploadInfo").on('click', function() {
-			var desc = $("#description").val();
-			var tags = $("#tags").val();
-
-			var uLoaded = $("#uLoaded");
-
-			width = uLoaded.css('width').replace('px','');
-			realWidth = uLoaded[0].naturalWidth;
-			var enlarge = realWidth /  width;
-			
-			console.log(realWidth, width, enlarge);
-
-			$.post("/api/images/update/" + id, { 
-				desc: desc, 
-				tags: tags, 
-				x: x * enlarge, 
-				y: y * enlarge,
-				size: w * enlarge, 
-			}, function(data)  {
-				data = JSON.parse(data);
-				$("#uLoaded").remove();
-				jcrop.destroy();
-				$("#uLoaded2").attr('src', data.path).removeClass("hidden");
-			}).fail(function(data) {
-				$("#loginStatus").hide();
-				$("#loginLogin").val('');
-				$("#loginPassword").val('');
-				$("#loginForm").show();
-				$("#failForm").show();
-				try {
-					data = JSON.parse(data.responseText);			
-					console.log("Error: " + data.message);
-				} catch (e) {
-
-				}
+				if (status == 'Forbidden') document.location.href = '/users/auth';
 			});
 		});
 	});
