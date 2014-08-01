@@ -1,0 +1,754 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pro",
+				"process()"
+			],
+			[
+				"s",
+				"sessionkey"
+			],
+			[
+				"Err",
+				"EvalError(message)"
+			],
+			[
+				"R",
+				"ReferenceError(message)"
+			],
+			[
+				"user",
+				"userId"
+			],
+			[
+				"pr",
+				"profile-update"
+			],
+			[
+				"fnu",
+				"function"
+			],
+			[
+				"PRO",
+				"profile"
+			],
+			[
+				"profile-",
+				"profile-email"
+			],
+			[
+				"use",
+				"userId"
+			],
+			[
+				"e",
+				"endj	(?)"
+			],
+			[
+				"u",
+				"userid"
+			],
+			[
+				"me",
+				"message"
+			],
+			[
+				"con",
+				"console	{}"
+			],
+			[
+				"processS",
+				"processStatic(req, rsp)"
+			],
+			[
+				"p",
+				"promisify	(?)"
+			],
+			[
+				"en",
+				"enlarge"
+			],
+			[
+				"res",
+				"resize	(str)"
+			],
+			[
+				"uplo",
+				"uploadInfo"
+			],
+			[
+				"asp",
+				"aspectRatio"
+			],
+			[
+				"up",
+				"uProgress"
+			],
+			[
+				"upload",
+				"upload"
+			],
+			[
+				"logg",
+				"logged-out"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"form-",
+				"form-data"
+			],
+			[
+				"mul",
+				"multipart"
+			],
+			[
+				"by",
+				"bytesExpected	(?)"
+			],
+			[
+				"file",
+				"fileName"
+			],
+			[
+				"thi",
+				"thirteen"
+			],
+			[
+				"i",
+				"if	if"
+			],
+			[
+				"tol",
+				"toLocaleDateString()"
+			],
+			[
+				"toL",
+				"toLocaleTimeString()"
+			],
+			[
+				"sessi",
+				"sessionId"
+			],
+			[
+				"dbmo",
+				"dbmodel"
+			],
+			[
+				"ses",
+				"sessionId	(?)"
+			],
+			[
+				"status",
+				"statusCode"
+			],
+			[
+				"dm",
+				"decodeURIComponent(uri)"
+			],
+			[
+				"se",
+				"sessionid"
+			],
+			[
+				"login",
+				"loginLogout"
+			],
+			[
+				"m",
+				"message"
+			],
+			[
+				"sta",
+				"statusCode	(?)"
+			],
+			[
+				"requ",
+				"request"
+			],
+			[
+				"ar",
+				"arguments	[]"
+			],
+			[
+				"h",
+				"href	Attr"
+			],
+			[
+				"qu",
+				"queryData	(str)"
+			],
+			[
+				"proc",
+				"processPost(request, response, callback)"
+			],
+			[
+				"ac",
+				"action	Attr"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"getImagesB",
+				"getImagesByTag(tag, callback)"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"get",
+				"getMessageById(id)"
+			],
+			[
+				"ge",
+				"getMessageById(id)"
+			],
+			[
+				"co",
+				"controller	(?)"
+			],
+			[
+				"toT",
+				"toLocaleTimeString()"
+			],
+			[
+				"de",
+				"__default__"
+			],
+			[
+				"type",
+				"typeOf"
+			],
+			[
+				"control",
+				"Controller"
+			],
+			[
+				"wh",
+				"write(chunk, encoding?, callback?)"
+			],
+			[
+				"w",
+				"writeHead(statusCode, headers?)"
+			],
+			[
+				"leg",
+				"length"
+			],
+			[
+				"func",
+				"func	(?)"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"le",
+				"length	(num)"
+			],
+			[
+				"cr",
+				"crcOne	{}"
+			],
+			[
+				"sq",
+				"squaredFive	(?)"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "controllers/users.js",
+			"settings":
+			{
+				"buffer_size": 654,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "controllers/api/users.js",
+			"settings":
+			{
+				"buffer_size": 2669,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "node_modules/thirteen.js",
+			"settings":
+			{
+				"buffer_size": 3266,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/users/profile.html",
+			"settings":
+			{
+				"buffer_size": 2460,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "node_modules/db.js",
+			"settings":
+			{
+				"buffer_size": 2302,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"hmtl",
+				"Set Syntax: HTML"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"tern",
+				"TernJS: Reload"
+			],
+			[
+				"SQL",
+				"Set Syntax: SQL"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 401.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/thirteen/server.js",
+		"/D/thirteen/views/users/register.html",
+		"/D/thirteen/doc/tables.sql",
+		"/D/thirteen/views/users/auth.html",
+		"/D/thirteen/node_modules/thirteen.js",
+		"/D/thirteen/controllers/users.js",
+		"/D/fuck/thirteen-project/node_modules/dbmodel.js",
+		"/D/thirteen/js/cookie.js",
+		"/D/thirteen/js/jquery.color.js",
+		"/D/thirteen/html/register.html",
+		"/D/thirteen/node_modules/mysql-promise/node_modules/bluebird/README.md",
+		"/D/thirteen/thirteen.sublime-project",
+		"/C/Users/Yohann/Desktop/ws13.sql",
+		"/D/thirteen-project/node_modules/dbmodel.js",
+		"/D/thirteen-project/controllers/users.js",
+		"/D/thirteen-project/html/login.html",
+		"/D/thirteen-project/html/upload.html",
+		"/D/thirteen-project/controllers/images.js",
+		"/C/Users/Yohann/Desktop/New Text Document (2).txt",
+		"/C/Users/Yohann/Desktop/dropzone.js",
+		"/D/thirteen-project/node_modules/thirteen.js",
+		"/D/thirteen-project/server.js",
+		"/D/thirteen-project/node_modules/gm/README.md",
+		"/D/thirteen-project/html/default.html",
+		"/D/thirteen-project/html/register.html",
+		"/C/Users/Yohann/Desktop/New Text Document.txt",
+		"/D/thirteen-project/html/js/jquery.Jcrop.js",
+		"/C/Users/Yohann/Desktop/jCrop/tapmodo-Jcrop-1902fbc/demos/tutorial3.html",
+		"/C/Users/Yohann/Desktop/jCrop/tapmodo-Jcrop-1902fbc/demos/tutorial3 - Copy.html",
+		"/C/Users/Yohann/Desktop/jCrop/tapmodo-Jcrop-1902fbc/demos/demo_files/main.css",
+		"/C/Users/Yohann/Desktop/jCrop/tapmodo-Jcrop-1902fbc/demos/tutorial1.html",
+		"/C/Users/Yohann/Desktop/jCrop/tapmodo-Jcrop-1902fbc/demos/tutorial2.html",
+		"/C/Users/Yohann/Desktop/jCrop/tapmodo-Jcrop-1902fbc/demos/crop.php",
+		"/D/thirteen-project/html/pictures/3.png",
+		"/D/thirteen-project/node_modules/multiparty/README.md",
+		"/D/thirteen-project/match.js",
+		"/D/thirteen-project/node_modules/mysql/lib/protocol/Auth.js",
+		"/D/thirteen-project/html/js/cookie.js",
+		"/D/thirteen-project/node_modules/mysql/Changes.md",
+		"/D/thirteen-project/node_modules/mysql/node_modules/require-all/test/controllers/other-Controller.js",
+		"/D/thirteen-project/node_modules/mysql/lib/protocol/packets/ClientAuthenticationPacket.js",
+		"/D/thirteen-project/node_modules/mysql/lib/protocol/packets/ComChangeUserPacket.js",
+		"/D/thirteen-project/node_modules/mysql/node_modules/bignumber.js/bignumber.js",
+		"/D/thirteen-project/node_modules/mysql/node_modules/readable-stream/node_modules/isarray/build/build.js",
+		"/D/thirteen-project/querytodb.js",
+		"/D/thirteen-project/sqltable",
+		"/D/thirteen-project/createTable.js",
+		"/D/thirteen-project/node_modules/cookie/README.md",
+		"/D/thirteen-project/node_modules/cookie/package.json",
+		"/D/thirteen-project/node_modules/cookie/index.js",
+		"/D/thirteen-project/reg-test.html",
+		"/D/thirteen-project/thirteen.sublime-workspace",
+		"/F/TODO.txt",
+		"/D/thirteen/objfunctions.js",
+		"/D/thirteen/controllers/user",
+		"/D/thirteen/TODO'шник",
+		"/D/thirteen/sqlmessage.js",
+		"/C/Users/Yohann/Desktop/ws03/src/modules/syp_db.js",
+		"/C/Users/Yohann/Desktop/ws03/src/modules/syp_users.js",
+		"//10.0.0.1/pub/thirteen-database.txt",
+		"/D/thirteen/node_modules/sqlmessage.js",
+		"/D/thirteen/controllers/__default__.js",
+		"/C/Users/Yohann/Desktop/ws03/src/main.js",
+		"/D/thirteen/third.js",
+		"/D/thirteen/router.js",
+		"/D/thirteen/index.html",
+		"/D/thirteen/views/__default__/__default__.html",
+		"/D/bsdoc/CSS · Bootstrap.htm",
+		"/D/thirteen/first.js",
+		"/D/thirteen/controller.js",
+		"/D/thirteen/node_modules/__default__.js",
+		"/D/thirteen/second.js",
+		"/D/thirteen/testificate.js",
+		"/D/thirteen/test.html",
+		"/D/thirteen/my-module.js",
+		"/D/thirteen/node_modules/my-module.js",
+		"/D/thirteen/test.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"log",
+			"responce",
+			"  ",
+			"userid",
+			"proce",
+			"404",
+			"css",
+			"json",
+			"crop",
+			"uploadFile",
+			"\"file\"",
+			"var",
+			"user",
+			"addima",
+			"release",
+			"target",
+			"1",
+			"png",
+			"5",
+			"data-src",
+			"data",
+			"fileProgress",
+			"reload",
+			");\n",
+			"[DEBUG]",
+			"cdata",
+			"data(0)",
+			"login",
+			"consequatur",
+			"Lorem ipsum",
+			"lorem",
+			"name",
+			"description",
+			"remove",
+			"tag",
+			"console",
+			"this"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": false,
+		"replace_history":
+		[
+			"	"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "controllers/users.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 654,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								389,
+								389
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "controllers/api/users.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2669,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2658,
+								2658
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1198.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "node_modules/thirteen.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3266,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1589,
+								1589
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 234.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/users/profile.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2002,
+								2002
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 534.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "node_modules/db.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2285,
+								2285
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "thirteen.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 184.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
