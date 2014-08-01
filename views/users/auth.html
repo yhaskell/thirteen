@@ -92,8 +92,8 @@
 			var userid = $.cookie('userid');
 
 			if (!session) {
-				$("#auth-form").fadeIn();
 				$("#fail-form").hide();
+				$("#auth-form").fadeIn();
 				if (data.email) $("#auth-name").text(data.email);
 			} else {
 				$.getJSON('/api/users/profile/' + userid, function(data) {
