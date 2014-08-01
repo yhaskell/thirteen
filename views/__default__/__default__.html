@@ -19,14 +19,14 @@
 			color: #00a0e8;
 		}
 
-		.main-page-image {
-			padding: 2px;
-		}
+/*		.main-page-image {
+			padding: 0.5px;
+*/		}
 
-		.thumbnail > img {
+/*		.thumbnail > img {
 			max-height: 400px;
 		}
-
+*/
 		@media(min-width: 1100px) {
 			.search-box {
 				width: 500px !important;
@@ -37,7 +37,13 @@
 
 			}
 		}
-    </style>
+/*		.img-switcher {
+			position: relative;
+			left: 0;
+			top: 0;
+
+		}
+*/    </style>
   </head>
   <body>
 	<!-- navigation top bar -->
@@ -83,53 +89,70 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 
-	<div class="container">
+<!-- <div style="width: 100%; background-color: #222222; margin-top: -20px; padding-top: 20px;"> -->
+	<div class="container" style="padding-top: 50px;">
 		<div class="row">
-			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" id="slide1-1" src="css/placeholder.png">
-				<img class="img-responsive" id="slide1-2" src="css/placeholder.png" style="display: none;">
+			<div class="col-xs-6 col-md-3" style="">
+			<a href="#" class="thumbnail">
+				<img class="img-responsive" data-image="1" src="css/placeholder.png">
+				<img class="img-responsive" data-image="1" src="css/placeholder-red.png" style="display: none;">
+			</a>
 			</div>
-			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" id="slide2-1" src="css/placeholder.png">
-				<img class="img-responsive" id="slide2-2" src="css/placeholder.png" style="display: none;">
+			<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img class="img-responsive" data-image="2" src="css/placeholder.png">
+				<img class="img-responsive" data-image="2" src="css/placeholder-green.png" style="display: none;">
+			</a>
 			</div>
-			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" id="slide3-1" src="css/placeholder.png">
-				<img class="img-responsive" id="slide3-2" src="css/placeholder.png" style="display: none;">
+			<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img class="img-responsive" data-image="3" src="css/placeholder.png">
+				<img class="img-responsive" data-image="3" src="css/placeholder-blue.png" style="display: none;">
+			</a>
 			</div>
-			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" id="slide4-1" src="css/placeholder.png">
-				<img class="img-responsive" id="slide4-2" src="css/placeholder.png" style="display: none;">
+			<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img class="img-responsive" data-image="4" src="css/placeholder.png">
+				<img class="img-responsive" data-image="4" src="css/placeholder-yellow.png" style="display: none;">
+			</a>
 			</div>
-			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" id="slide5-1" src="css/placeholder.png">
-				<img class="img-responsive" id="slide5-2" src="css/placeholder.png" style="display: none;">
+		</div>
+		<div class="row">		
+			<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img class="img-responsive" data-image="5" src="css/placeholder.png">
+				<img class="img-responsive" data-image="5" src="css/placeholder-orange.png" style="display: none;">
+			</a>
 			</div>
-			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" id="slide6-1" src="css/placeholder.png">
-				<img class="img-responsive" id="slide6-2" src="css/placeholder.png" style="display: none;">
+			<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img class="img-responsive" data-image="6" src="css/placeholder.png">
+				<img class="img-responsive" data-image="6" src="css/placeholder-purple.png" style="display: none;">
+			</a>
 			</div>
-			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" id="slide7-1" src="css/placeholder.png">
-				<img class="img-responsive" id="slide7-2" src="css/placeholder.png" style="display: none;">
+			<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img class="img-responsive" data-image="7" src="css/placeholder.png">
+				<img class="img-responsive" data-image="7" src="css/placeholder-violet.png" style="display: none;">
+			</a>
 			</div>
-			<div class="col-xs-6 col-md-3 main-page-image">
-				<img class="img-responsive" id="slide8-1" src="css/placeholder.png">
-				<img class="img-responsive" id="slide8-2" src="css/placeholder.png" style="display: none;">
+			<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img class="img-responsive" data-image="8" src="css/placeholder.png">
+				<img class="img-responsive" data-image="8" src="css/placeholder-cyan.png" style="display: none;">
+			</a>
 			</div>	
 		</div>
 	</div>
-
+<!-- </div> -->
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 	<script src="/js/cookie.js"></script>
 	<script>
 		var slider = function (first, second) {
-			first.fadeOut();
-			setTimeout(function() {
-				second.fadeIn();
-			}, 500);
+			$(first).toggle(500);
+			$(second).toggle(500);			
 		};
 
 		var init = function(data) {
@@ -162,55 +185,24 @@
 				$.get('/api/users/logout', init);
 			});
 
-			//while (true) {
-				slider($("#slide1-1"), $("#slide1-2"));
-				setTimeout (function(){
-					slider($("#slide7-1"), $("#slide7-2"));
-					setTimeout (function(){
-						slider($("#slide5-1"), $("#slide5-2"));
-						setTimeout (function(){
-							slider($("#slide3-1"), $("#slide3-2"));
-							setTimeout (function(){
-								slider($("#slide8-1"), $("#slide8-2"));
-								setTimeout (function(){
-									slider($("#slide2-1"), $("#slide2-2"));
-									setTimeout (function(){
-										slider($("#slide6-1"), $("#slide6-2"));
-										setTimeout (function(){
-											slider($("#slide4-1"), $("#slide4-2"));
-											// sliding back
-											setTimeout (function(){
-												slider($("#slide3-2"), $("#slide3-1"));
-												setTimeout (function(){
-													slider($("#slide5-2"), $("#slide5-1"));
-													setTimeout (function(){
-														slider($("#slide8-2"), $("#slide8-1"));
-														setTimeout (function(){
-															slider($("#slide1-2"), $("#slide1-1"));
-															setTimeout (function(){
-																slider($("#slide4-2"), $("#slide4-1"));
-																setTimeout (function(){
-																	slider($("#slide7-2"), $("#slide7-1"));
-																	setTimeout (function(){
-																		slider($("#slide6-2"), $("#slide6-1"));
-																		setTimeout (function(){
-																			slider($("#slide2-2"), $("#slide2-1"));
-																		}, 7000);
-																	}, 7000);
-																}, 7000);
-															}, 7000);
-														}, 7000);
-													}, 7000);
-												}, 7000);
-											}, 7000);
-										}, 7000);
-									}, 7000);
-								}, 7000);
-							}, 7000);
-						}, 7000);
-					}, 7000);
-				}, 7000);
-			//}
+			setInterval(function() {
+					var toSlide1 = (Math.random() * 4).toFixed(0) * 1 + 1;
+					var toSlide2 = (Math.random() * 4).toFixed(0) * 1 + 5;
+					var slides1 = $("[data-image=" + toSlide1 + "]");	
+					var slides2 = $("[data-image=" + toSlide2 + "]");	
+
+					console.log(toSlide2, toSlide1);
+
+					slider(slides1[0], slides1[1]);
+					setTimeout(function() { slider(slides2[0], slides2[1]);}, 1000);
+
+			}, 3000);	
+
+			$("#profile-go").on('click', function() {
+				document.location.href = '/users/profile/' + userid;
+			});
+
+
 		});
 	</script>
   </body>
