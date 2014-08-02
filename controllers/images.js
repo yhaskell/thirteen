@@ -25,3 +25,15 @@ exports.by = function(id) {
 
 	this.render();
 };
+
+exports.bytag = function(id, route) {
+	var T   = this.thirteen,
+		rsp = T.response,
+		req = T.request;
+
+	rsp.setHeader("Set-Cookie", [
+		T.cookie.serialize('tag-name', route.tag, {expires: new Date().add(10 * 1000), path: '/' })
+	]);	
+
+	this.render();
+};
