@@ -130,3 +130,14 @@ exports.by = function(id) {
 		rsp.endj(data);
 	});
 };
+
+exports.bytag = function(id, route) {
+	var T   = this.thirteen,
+		rsp = T.response,
+		req = T.request;	
+
+	T.db.images.byTag('#' + route.tag).then(function(data) {
+		rsp.statusCode = 200;
+		rsp.endj(data);
+	});
+};
