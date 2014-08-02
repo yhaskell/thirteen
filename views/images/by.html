@@ -48,7 +48,9 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	  		<li class="active"><a href="/">Home</a></li>      
+	  		<li><a href="/">Home</a></li>
+	  		<li><a href="/tags">Tags</a></li>
+	  		<li class="active"><a href="#">Images</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right logged-out">
 	        <li><a href="/users/auth">Sign in</a></li>
@@ -56,10 +58,11 @@
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right logged-in">
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged on as <span id="auth-nick">%username%</span> <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged on as <span id="auth-nick">...</span> <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a id="profile-go" href="#">Profile</a></li>
-	            <li><a id="profile-logout" href="#">Sign out</a></li>
+	            <li><a href="/images/upload">Upload</a></li>
+	            <li><a href="/users/profile">Profile</a></li>
+	            <li><a href="/users/logout">Sign out</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -126,14 +129,6 @@
 
 		$(function() {
 			init();
-
-			$("#profile-logout").on('click', function() {
-				$.get('/api/users/logout', init);
-			});
-
-			$("#profile-go").on('click', function() {
-				document.location.href = '/users/profile/' + userid;
-			});
 		});
 	</script>
   </body>

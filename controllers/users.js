@@ -29,3 +29,7 @@ exports.profile = function(id) {
 
 	this.render();
 };
+
+exports.logout = function() {
+	this.render();
+};

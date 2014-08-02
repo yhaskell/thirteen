@@ -1,4 +1,4 @@
-exports.register = function() {
+	exports.register = function() {
 	var T   = this.thirteen,
 		req = T.request,
 		rsp = T.response;

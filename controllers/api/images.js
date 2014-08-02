@@ -141,3 +141,14 @@ exports.bytag = function(id, route) {
 		rsp.endj(data);
 	});
 };
+
+exports.featured = function(id, route) {
+	var T   = this.thirteen,
+		rsp = T.response,
+		req = T.request;	
+
+	T.db.featured().then(function(data) {
+		rsp.statusCode = 200;
+		rsp.endj(data);
+	});
+};
