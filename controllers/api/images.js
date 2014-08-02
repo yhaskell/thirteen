@@ -104,3 +104,29 @@ exports.get = function(id) {
 };
 
 exports.__default__ = exports.get;
+
+
+exports.like = function(id, route) {
+	var T   = this.thirteen,
+		rsp = T.response,
+		req = T.request;	
+
+	if (route.owner)	
+	T.db.like(id, route.owner)
+		.then(function(data) {
+			rsp.statusCode = 200;
+			rsp.endj(data);
+		});
+	else rsp.end();
+};
+
+exports.by = function(id) {
+	var T   = this.thirteen,
+		rsp = T.response,
+		req = T.request;	
+
+	T.db.images.by(id).then(function(data) {
+		rsp.statusCode = 200;
+		rsp.endj(data);
+	});
+};
