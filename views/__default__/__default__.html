@@ -165,7 +165,6 @@
 			if (!session) {
 				$('.logged-out').removeClass('hidden');
 				$('.logged-in').addClass('hidden');
-				$("#auth-form").fadeIn();
 				if (data.email) $("#auth-name").text(data.email);
 			} else {
 				$.getJSON('/api/users/profile/' + userid, function(data) {
