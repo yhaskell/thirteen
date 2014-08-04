@@ -161,7 +161,7 @@
 					var tuple = $("[data-image=" + i + "]");	
 					for (var j = 0; j < 2; j++) {
 						$(tuple[j]).attr('src', data[(i - 1) * 2 + j].path);
-						$("#thumb-" + i).attr('data-href'+j, data[(i - 1) * 2 + j].path);
+						$("#thumb-" + i).data('href'+j, data[(i - 1) * 2 + j].path)
 					}
 				}
 				setInterval(function() {
