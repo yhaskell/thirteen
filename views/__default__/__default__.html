@@ -18,32 +18,7 @@
 			font-weight: bold;
 			color: #00a0e8;
 		}
-
-/*		.main-page-image {
-			padding: 0.5px;
-*/		}
-
-/*		.thumbnail > img {
-			max-height: 400px;
-		}
-*/
-		@media(min-width: 1100px) {
-			.search-box {
-				width: 500px !important;
-			}
-		}
-		@media(max-width: 1100px) {
-			.search-box {
-
-			}
-		}
-/*		.img-switcher {
-			position: relative;
-			left: 0;
-			top: 0;
-
-		}
-*/    </style>
+    </style>
   </head>
   <body>
 	<!-- navigation top bar -->
@@ -87,25 +62,25 @@
 	<div class="container" style="padding-top: 50px;">
 		<div class="row">
 			<div class="col-xs-6 col-md-3" style="">
-			<a href="#" class="thumbnail">
+			<a href="#" class="thumbnail" id="thumb-1">
 				<img class="img-responsive" data-image="1" >
 				<img class="img-responsive" data-image="1" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
+			<a href="#" class="thumbnail" id="thumb-2">
 				<img class="img-responsive" data-image="2" >
 				<img class="img-responsive" data-image="2" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
+			<a href="#" class="thumbnail" id="thumb-3">
 				<img class="img-responsive" data-image="3" >
 				<img class="img-responsive" data-image="3" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
+			<a href="#" class="thumbnail" id="thumb-4">
 				<img class="img-responsive" data-image="4" >
 				<img class="img-responsive" data-image="4" style="display: none;">
 			</a>
@@ -113,25 +88,25 @@
 		</div>
 		<div class="row">		
 			<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
+			<a href="#" class="thumbnail" id="thumb-5">
 				<img class="img-responsive" data-image="5" >
 				<img class="img-responsive" data-image="5" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
+			<a href="#" class="thumbnail" id="thumb-6">
 				<img class="img-responsive" data-image="6" >
 				<img class="img-responsive" data-image="6" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
+			<a href="#" class="thumbnail" id="thumb-7">
 				<img class="img-responsive" data-image="7" >
 				<img class="img-responsive" data-image="7" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" class="thumbnail">
+			<a href="#" class="thumbnail" id="thumb-8">
 				<img class="img-responsive" data-image="8">
 				<img class="img-responsive" data-image="8" style="display: none;">
 			</a>
@@ -146,7 +121,7 @@
 	<script>
 		var slider = function (first, second) {
 			$(first).toggle(500);
-			$(second).toggle(500);			
+			$(second).toggle(500);		
 		};
 
 		var init = function(data) {
@@ -171,6 +146,13 @@
 			}
 		};
 
+		var thslider = function (id) {
+			if ($("#thumb-" + id).href==$("#thumb-" + id).data-href0)
+				$("#thumb-" + id).attr('href', $("#thumb-" + id).data-href1);
+			else
+				$("#thumb-" + id).attr('href', $("#thumb-" + id).data-href0);
+		}
+
 		$(function() {
 			init();
 
@@ -179,16 +161,19 @@
 					var tuple = $("[data-image=" + i + "]");	
 					for (var j = 0; j < 2; j++) {
 						$(tuple[j]).attr('src', data[(i - 1) * 2 + j].path);
+						$("#thumb-" + i).attr('data-href'+j, data[(i - 1) * 2 + j].path);
 					}
 				}
 				setInterval(function() {
 					var toSlide1 = (Math.random() * 4).toFixed(0) * 1 + 1;
 					var toSlide2 = (Math.random() * 4).toFixed(0) * 1 + 5;
 					var slides1 = $("[data-image=" + toSlide1 + "]");	
-					var slides2 = $("[data-image=" + toSlide2 + "]");	
-
-					slider(slides1[0], slides1[1]);
-					setTimeout(function() { slider(slides2[0], slides2[1]);}, 1000);
+					var slides2 = $("[data-image=" + toSlide2 + "]");
+					thslider(toSlide1);
+					setTimeout(function() {
+						slider(slides2[0], slides2[1]);
+						thslider(toSlide2);
+					}, 1000);
 				}, 3000);	
 			});
 
