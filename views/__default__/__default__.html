@@ -47,7 +47,7 @@
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right logged-in">
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged on as <span id="auth-nick"><i class="fa fa-spinner fa-spin"></i></span> <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged on as <span id="auth-nick"></span> <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/images/upload">Upload</a></li>
 	            <li><a href="/users/profile">Profile</a></li>
@@ -126,6 +126,7 @@
 		};
 
 		var init = function(data) {
+			$("#auth-nick").text('<i class="fa fa-spinner fa-spin"></i>');
 			if (!data) data = {};
 			if (typeof(data) == 'string' && data !== '') data = JSON.parse(data);	
 
