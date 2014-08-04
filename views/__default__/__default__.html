@@ -148,9 +148,9 @@
 
 		var thslider = function (id) {
 			if ($("#thumb-" + id).href==$("#thumb-" + id).data-href0)
-				$("#thumb-" + id).attr('href', $("#thumb-" + id).data-href1);
+				$("#thumb-" + id).attr('href', $("#thumb-" + id).href1);
 			else
-				$("#thumb-" + id).attr('href', $("#thumb-" + id).data-href0);
+				$("#thumb-" + id).attr('href', $("#thumb-" + id).href0);
 		}
 
 		$(function() {
