@@ -121,7 +121,7 @@
 	<script>
 		var slider = function (first, second) {
 			$(first).toggle(500);
-			$(second).toggle(500);		
+			$(second).toggle(500);
 		};
 
 		var init = function(data) {
@@ -146,13 +146,6 @@
 			}
 		};
 
-		var thslider = function (id) {
-			if ($("#thumb-" + id).href==$("#thumb-" + id).data-href0)
-				$("#thumb-" + id).attr('href', $("#thumb-" + id).href1);
-			else
-				$("#thumb-" + id).attr('href', $("#thumb-" + id).href0);
-		}
-
 		$(function() {
 			init();
 
@@ -161,7 +154,12 @@
 					var tuple = $("[data-image=" + i + "]");	
 					for (var j = 0; j < 2; j++) {
 						$(tuple[j]).attr('src', data[(i - 1) * 2 + j].path);
-						$("#thumb-" + i).data('href'+j, data[(i - 1) * 2 + j].path)
+						/* not yet complete
+							if ($("#thumb-" + id).href==$(first).src)
+								$("#thumb-" + id).attr('href', $(second).href1);
+							else
+								$("#thumb-" + id).attr('href', $("#thumb-" + id).href0);
+						*/
 					}
 				}
 				setInterval(function() {
@@ -172,7 +170,6 @@
 					thslider(toSlide1);
 					setTimeout(function() {
 						slider(slides2[0], slides2[1]);
-						thslider(toSlide2);
 					}, 1000);
 				}, 3000);	
 			});
