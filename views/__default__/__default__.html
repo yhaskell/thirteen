@@ -152,16 +152,16 @@
 						$(tuple[j]).attr('src', data[(i - 1) * 2 + j].path);
 					}
 					if ($("#thumb-" + i).href==$(tuple[0]).src)
-						$("#thumb-" + i).attr('href', $(tuple[1]).src);
+						$("#thumb-" + i).attr('href', $(tuple[1]).attr('src'););
 					else
-						$("#thumb-" + i).attr('href', $(tuple[0]).src);
+						$("#thumb-" + i).attr('href', $(tuple[0]).attr('src'););
 				}
 				setInterval(function() {
 					var toSlide1 = (Math.random() * 4).toFixed(0) * 1 + 1;
 					var toSlide2 = (Math.random() * 4).toFixed(0) * 1 + 5;
 					var slides1 = $("[data-image=" + toSlide1 + "]");	
 					var slides2 = $("[data-image=" + toSlide2 + "]");
-					thslider(toSlide1);
+					slider(toSlide1);
 					setTimeout(function() {
 						slider(slides2[0], slides2[1]);
 					}, 1000);
