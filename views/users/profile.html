@@ -80,6 +80,8 @@
 	<script>
 		$(function() {
 
+		var nck = $("#profile-nick");
+		nck.text(nck.text().toLowerCase());
 		var userId = $.cookie('userid');
 
 		if (!userId) document.location.href = '/';
