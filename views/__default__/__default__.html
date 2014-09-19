@@ -161,7 +161,6 @@
 					var toSlide2 = (Math.random() * 4).toFixed(0) * 1 + 5;
 					var slides1 = $("[data-image=" + toSlide1 + "]");	
 					var slides2 = $("[data-image=" + toSlide2 + "]");
-					slider(toSlide1);
 					setTimeout(function() {
 						slider(slides2[0], slides2[1]);
 					}, 1000);
