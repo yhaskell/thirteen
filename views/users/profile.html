@@ -80,8 +80,6 @@
 	<script>
 		$(function() {
 
-		var nck = $("#profile-nick");
-		nck.text(nck.text().toLowerCase());
 		var userId = $.cookie('userid');
 
 		if (!userId) document.location.href = '/';
@@ -112,6 +110,9 @@
 		});
 
 		$("#profile-update").on('click', function() {
+			var nck = $("#profile-nick");
+			nck.text(nck.text().toLowerCase());
+			
 			var data = {
 				nick: $("#profile-nick").val(),
 				realname: $("#profile-realname").val()
