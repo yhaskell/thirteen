@@ -150,11 +150,13 @@
 					var tuple = $("[data-image=" + i + "]");	
 					for (var j = 0; j < 2; j++) {
 						$(tuple[j]).attr('src', data[(i - 1) * 2 + j].path);
+						$(tuple[j]).attr('num', data[(i - 1) * 2 + j].id);
 					}
+
 					if ($("#thumb-" + i).href==$(tuple[0]).src)
-						$("#thumb-" + i).attr('href', $(tuple[1]).attr('src'));
+						$("#thumb-" + i).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple[1]).attr('num'));
 					else
-						$("#thumb-" + i).attr('href', $(tuple[0]).attr('src'));
+						$("#thumb-" + i).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple[0]).attr('num'));
 				}
 				setInterval(function() {
 					var toSlide1 = (Math.random() * 4).toFixed(0) * 1 + 1;
