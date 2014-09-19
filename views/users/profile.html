@@ -64,6 +64,7 @@
 				<div class="form-group">
 					<label for="profile-nick">Nick</label>
 					<input type="text" class="form-control" id="profile-nick">
+					<label style="color: #708090;">Nick will be lowercased</label>
 				</div>
 				<div class="form-group">
 					<label for="profile-realname">Real name</label>
@@ -111,8 +112,8 @@
 
 		$("#profile-update").on('click', function() {
 			var nck = $("#profile-nick");
-			nck.text(nck.text().toLowerCase());
-			
+			nck.val(nck.val().toLowerCase());
+
 			var data = {
 				nick: $("#profile-nick").val(),
 				realname: $("#profile-realname").val()
