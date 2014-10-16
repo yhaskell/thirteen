@@ -161,11 +161,9 @@
 				setInterval(function() {
 					var toSlide1 = (Math.random() * 3).toFixed(0) * 1 + 1;
 					var toSlide2 = (Math.random() * 3).toFixed(0) * 1 + 5;
-					var slides1 = $("[data-image=" + toSlide1 + "]");	
-					var slides2 = $("[data-image=" + toSlide2 + "]");
 					setTimeout(function() {
 						$("#ch-img").text(toSlide1 + '; ' + toSlide2);
-						slider(slides1, slides2);
+						slider("[data-image=" + toSlide1 + "]", "[data-image=" + toSlide2 + "]");
 					}, 1000);
 				}, 3000);	
 			});
