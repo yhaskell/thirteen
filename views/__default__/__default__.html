@@ -83,7 +83,8 @@
 			</a>
 			</div>
 		</div>
-		<div class="row">		
+		<div class="row">
+			<span id="ch-img">...</span>		
 			<div class="col-xs-6 col-md-3">
 			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-5">
 				<img class="img-responsive" data-image="5" >
@@ -163,6 +164,7 @@
 					var slides1 = $("[data-image=" + toSlide1 + "]");	
 					var slides2 = $("[data-image=" + toSlide2 + "]");
 					setTimeout(function() {
+						$("#ch-img").text(slides2[0]);
 						slider(slides2[0], slides2[1]);
 					}, 1000);
 				}, 3000);	
