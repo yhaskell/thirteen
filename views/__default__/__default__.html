@@ -57,7 +57,6 @@
 	</nav>
 
 	<div class="container" style="padding-top: 50px;">
-		<span id="ch-img">...</span>
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-1">
@@ -153,17 +152,25 @@
 						$(tuple[j]).attr('src', data[(i - 1) * 2 + j].path);
 						$(tuple[j]).attr('num', data[(i - 1) * 2 + j].id);
 					}
-					//if ($("#thumb-" + i).href==$(tuple[0]).src)
-					//	$("#thumb-" + i).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple[1]).attr('num'));
-					//else
-					//	$("#thumb-" + i).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple[0]).attr('num'));
 				}
 				setInterval(function() {
 					var toSlide1 = (Math.random() * 3).toFixed(0) * 1 + 1;
 					var toSlide2 = (Math.random() * 3).toFixed(0) * 1 + 5;
 					setTimeout(function() {
-						$("#ch-img").text(toSlide1 + '; ' + toSlide2);
+						console.log(toSlide1 + '; ' + toSlide2);
 						slider("[data-image=" + toSlide1 + "]", "[data-image=" + toSlide2 + "]");
+						var tuple1 = $("[data-image=" + toSlide1 + "]");
+						var tuple2 = $("[data-image=" + toSlide2 + "]");
+						if ($("#thumb-" + toSlide1).href==$(tuple1[0]).src)
+							$("#thumb-" + toSlide1).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple1[1]).attr('num'));
+						else
+							$("#thumb-" + toSlide1).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple1[0]).attr('num'));
+
+						if ($("#thumb-" + toSlide2).href==$(tuple2[0]).src)
+							$("#thumb-" + toSlide2).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple2[1]).attr('num'));
+						else
+							$("#thumb-" + toSlide2).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple2[0]).attr('num'));
+
 					}, 1000);
 				}, 3000);	
 			});
