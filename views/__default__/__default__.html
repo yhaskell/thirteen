@@ -156,16 +156,14 @@
 					//	$("#thumb-" + i).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple[1]).attr('num'));
 					//else
 					//	$("#thumb-" + i).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple[0]).attr('num'));
-					echo ('http://thirteen.nanodesu.org/images/'+$(tuple[1]).attr('num'));
 				}
 				setInterval(function() {
-					var toSlide1 = (Math.random() * 4).toFixed(0) * 1 + 1;
-					var toSlide2 = (Math.random() * 4).toFixed(0) * 1 + 5;
+					var toSlide1 = (Math.random() * 3).toFixed(0) * 1 + 1;
+					var toSlide2 = (Math.random() * 3).toFixed(0) * 1 + 5;
 					var slides1 = $("[data-image=" + toSlide1 + "]");	
 					var slides2 = $("[data-image=" + toSlide2 + "]");
 					setTimeout(function() {
 						slider(slides2[0], slides2[1]);
-						echo (toSlide1 + ' ' + toSlide2);
 					}, 1000);
 				}, 3000);	
 			});
