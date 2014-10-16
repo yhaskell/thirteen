@@ -157,19 +157,26 @@
 					var toSlide1 = (Math.random() * 3).toFixed(0) * 1 + 1;
 					var toSlide2 = (Math.random() * 3).toFixed(0) * 1 + 5;
 					setTimeout(function() {
-						console.log(toSlide1 + '; ' + toSlide2);
 						slider("[data-image=" + toSlide1 + "]", "[data-image=" + toSlide2 + "]");
 						var tuple1 = $("[data-image=" + toSlide1 + "]");
 						var tuple2 = $("[data-image=" + toSlide2 + "]");
-						if ($("#thumb-" + toSlide1).href==$(tuple1[0]).src)
+						if ($("#thumb-" + toSlide1).href==$(tuple1[0]).src) {
+							console.log(toSlide1 + '=0; ' + $(tuple1[1]).attr('num'));
 							$("#thumb-" + toSlide1).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple1[1]).attr('num'));
-						else
+						}
+						else {
+							console.log(toSlide1 + '=1; ' + $(tuple1[0]).attr('num'));
 							$("#thumb-" + toSlide1).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple1[0]).attr('num'));
+						}
 
-						if ($("#thumb-" + toSlide2).href==$(tuple2[0]).src)
+						if ($("#thumb-" + toSlide2).href==$(tuple2[0]).src) {
+							console.log(toSlide2 + '=0; ' + $(tuple2[1]).attr('num'));
 							$("#thumb-" + toSlide2).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple2[1]).attr('num'));
-						else
+						}
+						else {
+							console.log(toSlide2 + '=0; ' + $(tuple2[0]).attr('num'));
 							$("#thumb-" + toSlide2).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple2[0]).attr('num'));
+						}
 
 					}, 1000);
 				}, 3000);	
