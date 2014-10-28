@@ -59,25 +59,25 @@
 	<div class="container" style="padding-top: 50px;">
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
-			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-1">
+			<a href="#" class="thumbnail" id="thumb-1">
 				<img class="img-responsive" data-image="1" >
 				<img class="img-responsive" data-image="1" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-2">
+			<a href="#" class="thumbnail" id="thumb-2">
 				<img class="img-responsive" data-image="2" >
 				<img class="img-responsive" data-image="2" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-3">
+			<a href="#" class="thumbnail" id="thumb-3">
 				<img class="img-responsive" data-image="3" >
 				<img class="img-responsive" data-image="3" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-4">
+			<a href="#" class="thumbnail" id="thumb-4">
 				<img class="img-responsive" data-image="4" >
 				<img class="img-responsive" data-image="4" style="display: none;">
 			</a>
@@ -85,25 +85,25 @@
 		</div>
 		<div class="row">		
 			<div class="col-xs-6 col-md-3">
-			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-5">
+			<a href="#" class="thumbnail" id="thumb-5">
 				<img class="img-responsive" data-image="5" >
 				<img class="img-responsive" data-image="5" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-6">
+			<a href="#" class="thumbnail" id="thumb-6">
 				<img class="img-responsive" data-image="6" >
 				<img class="img-responsive" data-image="6" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-7">
+			<a href="#" class="thumbnail" id="thumb-7">
 				<img class="img-responsive" data-image="7" >
 				<img class="img-responsive" data-image="7" style="display: none;">
 			</a>
 			</div>
 			<div class="col-xs-6 col-md-3">
-			<a href="#" data-href0="" data-href1="" class="thumbnail" id="thumb-8">
+			<a href="#" class="thumbnail" id="thumb-8">
 				<img class="img-responsive" data-image="8">
 				<img class="img-responsive" data-image="8" style="display: none;">
 			</a>
@@ -152,6 +152,7 @@
 						$(tuple[j]).attr('src', data[(i - 1) * 2 + j].path);
 						$(tuple[j]).attr('num', data[(i - 1) * 2 + j].id);
 					}
+					$("#thumb-" + i).attr('href', 'http://thirteen.nanodesu.org/images/'+$(tuple[0]).attr('num'));
 				}
 				setInterval(function() {
 					var toSlide1 = (Math.random() * 3).toFixed(0) * 1 + 1;
